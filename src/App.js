@@ -7,12 +7,11 @@ import SettingsApplicationsRoundedIcon from '@material-ui/icons/SettingsApplicat
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import CardItem from './pages/components/cardapioItem'
 import TableItem from './pages/components/tableItem'
+import CommandItem from './pages/components/commandItem';
 import { ConsumptionContext } from './contexts/consumptionContext';
 function App() {
-  const { consumption } = React.useContext(ConsumptionContext);
-
-
-
+  const { consumption, TableValue, setTableValue } = React.useContext(ConsumptionContext);
+  const [valueItens, setValueItens] = useState('')
   const [ComandList, setComandList] = useState([
 
     {
@@ -87,16 +86,77 @@ function App() {
     id: 1,
     value: 1,
     date: '13:00',
-    consumption: {
-      1: {
-        id: 11,
+    consumption: [
+      {
+        id: 1,
         itemName: 'Garangueijo',
+        value: 20,
       },
-      2: {
+      {
+        id: 2,
+        itemName: 'Arrumadinho C/S',
+        value: 1000,
+      },
+      {
+        id: 3,
+        itemName: 'Garangueijo',
+        value: 2,
+      },
+      {
+        id: 4,
+        itemName: 'Arrumadinho C/S',
+        value: 3,
+      }, {
+        id: 5,
+        itemName: 'Garangueijo',
+        value: 2,
+      },
+      {
+        id: 4,
+        itemName: 'Arrumadinho C/S',
+        value: 3,
+      },
+      {
+        id: 5,
+        itemName: 'Arrumadinho C/S',
+        value: 3,
+      },
+      {
         id: 6,
         itemName: 'Arrumadinho C/S',
+        value: 3,
+      },
+      {
+        id: 7,
+        itemName: 'Arrumadinho C/S',
+        value: 3,
+      },
+
+      {
+        id: 8,
+        itemName: 'Arrumadinho C/S',
+        value: 10,
+      },
+      {
+        id: 9,
+        itemName: 'Arrumadinho C/S',
+        value: 10,
+      },
+
+      {
+        id: 10,
+        itemName: 'Arrumadinho C/S',
+        value: 10,
       }
-    }
+      ,
+
+      {
+        id: 11,
+        itemName: 'Arrumadinho C/S',
+        value: 12,
+      }
+    ]
+
   },
   {
     id: 2,
@@ -108,16 +168,16 @@ function App() {
     id: 3,
     value: 3,
     date: '13:00',
-    consumption: {
-      1: {
-        id: 11,
+    consumption: [
+      {
+        id: 1,
         itemName: 'Garangueijo',
       },
-      2: {
-        id: 6,
+      {
+        id: 2,
         itemName: 'Arrumadinho C/S',
       }
-    }
+    ]
   }
     ,
   {
@@ -129,7 +189,20 @@ function App() {
   {
     id: 5,
     value: 5,
-    date: '13:00'
+    date: '13:00',
+    consumption: [
+      {
+        id: 1,
+        itemName: 'Garangueijo',
+        value: 80,
+      },
+      {
+        id: 2,
+        itemName: 'Arrumadinho C/S',
+        value: 3,
+      },
+
+    ]
   }
     ,
   {
@@ -181,8 +254,27 @@ function App() {
 
       </div>
       <div className="command">
-      
+   
+        <div className="command_itens">
+            <div className="currentItens">
+            <h3>Lista de Pedidos</h3>
+          {
+
+            consumption ? consumption.map((item, key) => (
+              item.map((item, key) => (
+                <CommandItem data={item} key={key} />
+
+              ))
+            )) : null
+          }
+          </div>
+        </div>
+        <div className="result">
+          <h3>Total:</h3>
+          <h2>R$ {TableValue}</h2>
+        </div>
       </div>
+          
     </div>
   );
 }

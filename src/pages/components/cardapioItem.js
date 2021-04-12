@@ -9,8 +9,8 @@ function CardItem({ data, key }) {
     console.log(data.id)
   }
 
-  return <div className="listItem" onClick={handlerShowItem} >
-    
+  return <div className="listItem" onClick={handlerShowItem} key={data.id} >
+
     <div className="img">
       <img src={data.imgUrl} alt="" id="imagem" />
     </div>
