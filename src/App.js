@@ -10,6 +10,7 @@ import TableItem from './pages/components/tableItem'
 import CommandItem from './pages/components/commandItem';
 import { ConsumptionContext } from './contexts/consumptionContext';
 function App() {
+
   const { consumption, TableValue, setTableValue } = React.useContext(ConsumptionContext);
   const [valueItens, setValueItens] = useState('')
   const [ComandList, setComandList] = useState([
@@ -18,67 +19,67 @@ function App() {
       id: 1,
       itemName: 'Garangueijo',
       imgUrl: 'https://www.receiteria.com.br/wp-content/uploads/receitas-de-caranguejo-1200x774.jpg',
-      price: '2.50'
+      price: 2.50
     },
     {
       id: 2,
       itemName: 'Linguiça na Brasa',
       imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuiCDTErzCt3v7PYWlbVlyJjxXoDoG_XGX8A&usqp=CAU',
-      price: '22.30'
+      price: 22.30
     },
     {
       id: 3,
       itemName: 'Maminha - Arroz',
       imgUrl: 'https://cdn.guiadacozinha.com.br/wp-content/uploads/2019/10/bife-de-maminha-arroz-ervas.jpg',
-      price: '3.30'
+      price: 3.30
     },
     {
       id: 4,
       itemName: 'Coca-lata',
       imgUrl: 'https://oitalia.com.br/wp-content/uploads/2019/11/COCA-COLA-LATA.jpeg',
-      price: '2.50'
+      price: 2.50
     },
     {
       id: 5,
       itemName: 'Garangueijo',
       imgUrl: 'https://www.receiteria.com.br/wp-content/uploads/receitas-de-caranguejo-1200x774.jpg',
-      price: '2.30'
+      price: 2.30
     },
     {
       id: 6,
       itemName: 'Arrumadinho C/S',
       imgUrl: 'https://s2.glbimg.com/VFLq1ZSGI8NjvCuR92SLicMUufQ=/0x0:418x288/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2012/06/13/15/11/52/634/Arrumadinho.jpg',
-      price: '18.50'
+      price: 18.50
     },
     {
       id: 7,
       itemName: 'Garangueijo',
       imgUrl: 'https://www.receiteria.com.br/wp-content/uploads/receitas-de-caranguejo-1200x774.jpg',
-      price: '2.30'
+      price: 2.30
     },
     {
       id: 8,
       itemName: 'Garangueijo',
       imgUrl: 'https://www.receiteria.com.br/wp-content/uploads/receitas-de-caranguejo-1200x774.jpg',
-      price: '2.30'
+      price: 2.30
     },
     {
       id: 9,
       itemName: 'Garangueijo',
       imgUrl: 'https://www.receiteria.com.br/wp-content/uploads/receitas-de-caranguejo-1200x774.jpg',
-      price: '2.30'
+      price: 2.30
     },
     {
       id: 10,
       itemName: 'Garangueijo',
       imgUrl: 'https://www.receiteria.com.br/wp-content/uploads/receitas-de-caranguejo-1200x774.jpg',
-      price: '2.30'
+      price: 2.30
     },
     {
       id: 11,
       itemName: 'Garangueijo',
       imgUrl: 'https://www.receiteria.com.br/wp-content/uploads/receitas-de-caranguejo-1200x774.jpg',
-      price: '2.30'
+      price: 2.30
     },
   ]);
 
@@ -162,6 +163,7 @@ function App() {
     id: 2,
     value: 2,
     date: '13:00'
+
   }
     ,
   {
@@ -172,10 +174,12 @@ function App() {
       {
         id: 1,
         itemName: 'Garangueijo',
+        value: 20,
       },
       {
         id: 2,
         itemName: 'Arrumadinho C/S',
+        value: 220.50,
       }
     ]
   }
@@ -211,11 +215,10 @@ function App() {
     date: '13:00'
   }
   ]);
-
-  React.useEffect(() => {
-
-  }, [])
-
+  function handlerRealValue(valor) {
+    const valorREAL = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    return valorREAL;
+  }
 
   return (
     <div className="container">
@@ -254,27 +257,27 @@ function App() {
 
       </div>
       <div className="command">
-   
+
         <div className="command_itens">
-            <div className="currentItens">
+          <div className="currentItens">
             <h3>Lista de Pedidos</h3>
-          {
+            {
 
-            consumption ? consumption.map((item, key) => (
-              item.map((item, key) => (
-                <CommandItem data={item} key={key} />
+              consumption ? consumption.map((item, key) => (
+                item.map((item, key) => (
+                  <CommandItem data={item} key={key} />
 
-              ))
-            )) : null
-          }
+                ))
+              )) : null
+            }
           </div>
         </div>
         <div className="result">
           <h3>Total:</h3>
-          <h2>R$ {TableValue}</h2>
+          <h2>{handlerRealValue(TableValue)}</h2>
         </div>
       </div>
-          
+
     </div>
   );
 }

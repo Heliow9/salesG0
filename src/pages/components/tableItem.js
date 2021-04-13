@@ -9,6 +9,7 @@ function TableItem({ data }) {
 
   const handlerSetconsumption = () => {
     const { consumption } = data;
+
     let somar = 0;
 
     if (data.consumption) {
@@ -23,13 +24,11 @@ function TableItem({ data }) {
     }
   }
 
-
-
   return (
     <div className="tableItem" key={data.id} onClick={handlerSetconsumption} >
       <div className="tableInfor">
         <div className="number">{data.value}</div>
-        <div className="value">58,00</div>
+
       </div>
       <div className="tableDate">
         Aberta: 13:30

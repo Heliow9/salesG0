@@ -107,6 +107,7 @@
   float: left;
   margin: 3px 2px 8px 0px;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .listItem .img {
@@ -169,6 +170,7 @@
   margin: 10px;
   float: left;
   border-radius: 8px;
+  cursor: pointer
 }
 
 .tableInfor {
@@ -180,7 +182,6 @@
 
 .tableInfor .number {
   margin: 0 auto;
-  border-right: 1px solid #ccc;
   font-size: 30px;
   padding-right: 5px
 }

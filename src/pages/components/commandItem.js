@@ -5,14 +5,14 @@ import React, { useEffect } from 'react';
 function CommandItem({ data }) {
   const { value } = data;
 
-
+  const valorBRL = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   return (
     <>
       <div className="ItenList">
         <div className="item" key={data.id} >
-          <div className="itemName">{data.id}und. {data.itemName}</div>
-          <div className="itemValue">R$ {data.value}</div>
+          <div className="itemName">{data.id} {data.itemName}</div>
+          <div className="itemValue">R$ {valorBRL}</div>
         </div>
       </div>
     </>
