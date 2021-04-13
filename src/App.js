@@ -9,6 +9,7 @@ import CardItem from './pages/components/cardapioItem'
 import TableItem from './pages/components/tableItem'
 import CommandItem from './pages/components/commandItem';
 import { ConsumptionContext } from './contexts/consumptionContext';
+import Noselected from './pages/components/noSelected';
 function App() {
 
   const { consumption, TableValue, setTableValue } = React.useContext(ConsumptionContext);
@@ -246,7 +247,9 @@ function App() {
           ))}
         </div>
         <div className="tables">
+          <span>Mesas Ativas</span>
           <div className="tableList">
+
             {
               tables.map((item, key) => (
                 <TableItem data={item} key={key} />
@@ -257,8 +260,29 @@ function App() {
 
       </div>
       <div className="command">
+        {
+          !consumption ? <Noselected /> : <>
+            <div className="command_itens">
+              <div className="currentItens">
+                <h3>Lista de Pedidos</h3>
+                {
 
-        <div className="command_itens">
+                  consumption ? consumption.map((item, key) => (
+                    item.map((item, key) => (
+                      <CommandItem data={item} key={key} />
+
+                    ))
+                  )) : null
+                }
+              </div>
+            </div>
+            <div className="result">
+              <h3>Total:</h3>
+              <h2>{TableValue ? handlerRealValue(TableValue) : null}</h2>
+            </div>
+          </>
+        }
+        {/* <div className="command_itens">
           <div className="currentItens">
             <h3>Lista de Pedidos</h3>
             {
@@ -274,8 +298,8 @@ function App() {
         </div>
         <div className="result">
           <h3>Total:</h3>
-          <h2>{handlerRealValue(TableValue)}</h2>
-        </div>
+          <h2>{TableValue ? handlerRealValue(TableValue) : null}</h2>
+        </div> */}
       </div>
 
     </div>
