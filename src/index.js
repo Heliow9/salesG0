@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { ConsumptionProvider } from './contexts/consumptionContext';
-
+import { BrowserRouter } from 'react-router-dom'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <ConsumptionProvider>
-      <App />
-    </ConsumptionProvider>
+    <BrowserRouter>
+      <ConsumptionProvider>
+        <App />
+      </ConsumptionProvider>
+    </BrowserRouter>
 
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,0 +1,39 @@
+.container {
+  width: 818px;
+  height: 100%;
+  background-color: #363966;
+  height: 336px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.formTable{
+  display:flex; 
+  justify-content:space-between;
+  padding:10px;
+  align-items:center;
+}
+
+.inputNumber{
+  display:flex;
+  align-items:center;
+}
+.inputNumber input{
+  width:38px;
+  height:25px;
+  outline:0;
+}
+.inputNumber button{
+  width:130px;
+  height:33px;
+  margin-left:10px;
+  border:none;
+  background-color: #6464F6;
+  border-radius:8px;
+  color: white;
+}
+.imageTable img{
+  width:300px;
+  height:250px;
+  border-radius: 8px;
+}

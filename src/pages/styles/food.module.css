@@ -1,0 +1,54 @@
+.container {
+  width: 818px;
+  height: 100%;
+  background-color: #363966;
+  height: 336px;
+  border-radius: 10px;
+  padding: 5px;
+
+}
+.formfood{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  
+
+} 
+
+.inputGroup{
+  margin-top: 20px;
+}
+.inputGroup label{
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.inputGroup input{
+  outline:0px;
+  height:26px;
+}
+ .inputName{
+  width:220px;
+}
+
+.inputPrice{
+  width:40px
+}
+
+.buttons{
+  display:flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.buttons button{
+  margin: 10px;
+  border:none;
+  background-color: #6464F6;
+  border-radius:8px;
+  color: white;
+  width:130px;
+  height:33px;
+  cursor:pointer;
+  
+}
