@@ -8,7 +8,7 @@ import TableImg from '../assets/table.jpg'
 // import { Container } from './styles';
 
 function Table() {
-
+  
 
   return (
     <div className={style.container}>
